@@ -6,7 +6,7 @@ import { exec } from 'child_process';
 import animate from 'chalk-animation';
 
 const PROJECT_TEMPLATE_PATH = resolve(__dirname, '../../templates/project');
-const INSTALL_DEPS_MESSAGE = 'Installing dependencies';
+let INSTALL_DEPS_MESSAGE = 'Installing dependencies';
 const INSTALL_DEPS_ANIMATION = animate.glitch(`${chalk.yellowBright(str)}`, 0.3);
 
 const npmInstall = (projectPath, animationInterval) =>
