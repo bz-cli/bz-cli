@@ -1,0 +1,5 @@
+--recursive
+--watch
+--reporter=spec
+--timeout 15000
+--compilers js:babel-core/register

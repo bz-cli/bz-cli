@@ -1,0 +1,44 @@
+{
+  "name": "custom-connector-name",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "NODE_ENV=test mocha",
+    "unit-test": "NODE_ENV=test mocha test/unit --watch",
+    "integration-test": "NODE_ENV=test mocha test/integration --watch",
+    "dev": "npm run babel-node",
+    "debug-mocha": "mocha --inspect --debug-brk",
+    "babel-node": "babel src --out-dir ./build/actions --watch",
+    "build": "node_modules/.bin/bz-def && npm run setup && npm run define && npm run production && npm run bundle && npm run clear",
+    "setup": "cpr package.json ./build/package.json && cpr Readme.md ./build/README.md",
+    "define": "npm run define:clear && npm run define:copy && rimraf def",
+    "define:clear": "rimraf ./build/def && rimraf ./build/actions.js",
+    "define:copy": "cpr ./def/connector.json ./build/def/connector.json && cpr ./def/actions.js ./build/actions.js",
+    "production": "npm --prefix ./build install --production --legacy-bundling ./build",
+    "bundle": "node_modules/.bin/bz-zip -f build",
+    "clear": "rimraf build/node_modules && rimraf build/def && rimraf build/actions.js && rimraf build/package.json && rimraf build/README.md && rimraf def"
+  },
+  "description": "Information about this connector",
+  "author": {
+    "name": "Your name of course",
+    "email": "iamawesome@gmail.com"
+  },
+  "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "bz-util": "*",
+    "regenerator-runtime": "^0.11.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "bz-define": "^0.0.1",
+    "copyfiles": "^1.2.0",
+    "cpr": "^2.0.2",
+    "rimraf": "^2.6.1"
+  }
+}
