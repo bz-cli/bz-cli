@@ -7,7 +7,7 @@ import chalk from 'chalk';
 const ACTION_TEMPLATE_PATH = resolve(__dirname, '../../templates/action/action-template.js');
 const TEMPLATE_RELATIVE_PATH = resolve('../../templates/action/action-template.js');
 
-const getDestPath = (actionName) => `test/${kebabCase(actionName)}.js`;
+const getDestPath = (actionName) => `src/${kebabCase(actionName)}.js`;
 
 export const generateAction = (actionName) => {
   const destPath = getDestPath(actionName);
