@@ -594,6 +594,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
+bluebird@^3.4.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
+
 boom@2.x.x:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/boom/-/boom-2.10.1.tgz#39c8918ceff5799f83f9492a848f625add0c766f"
@@ -1251,6 +1255,12 @@ normalize-path@^2.0.0, normalize-path@^2.0.1:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
   dependencies:
     remove-trailing-separator "^1.0.1"
+
+npm-programmatic@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/npm-programmatic/-/npm-programmatic-0.0.9.tgz#cb9feabae41ef602d557a5eeb24ddd146bdd7e21"
+  dependencies:
+    bluebird "^3.4.1"
 
 npmlog@^4.0.2:
   version "4.1.2"
