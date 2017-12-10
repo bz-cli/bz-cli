@@ -4,19 +4,43 @@ import { sync } from 'mkpath';
 import chalk from 'chalk';
 import { exec } from 'child_process';
 import animate from 'chalk-animation';
+import npm from 'npm-programmatic';
 
 const PROJECT_TEMPLATE_PATH = resolve(__dirname, '../../templates/project');
-const INSTALL_DEPS_MESSAGE = 'Installing dependencies';
-const INSTALL_DEPS_ANIMATION = animate.glitch(`${chalk.yellowBright(str)}`, 0.3);
+let INSTALL_DEPS_MESSAGE = 'Installing dependencies';
+const INSTALL_DEPS_ANIMATION = animate.glitch(`${chalk.yellowBright(INSTALL_DEPS_MESSAGE)}`, 0.3);
+
+const DEPS = [ 'babel-plugin-transform-runtime', 'babel-polyfill', 'babel-runtime', 'bz-util', 'regenerator-runtime' ];
+const DEV_DEPS = [
+	'babel-cli',
+	'babel-core',
+	'babel-plugin-transform-object-rest-spread',
+	'babel-preset-es2015',
+	'babel-preset-stage-3',
+	'bz-define',
+	'copyfiles',
+	'cpr',
+	'rimraf'
+];
 
 const npmInstall = (projectPath, animationInterval) =>
-	exec(`cd ${projectPath} && npm install`, (err, stdout, stderr) => {
-		if (err) throw err;
+	Promise.all([
+		npm.install(DEPS, { cwd: projectPath, save: true }),
+		npm.install(DEV_DEPS, { cwd: projectPath, saveDev: true })
+	])
+		.then(() => {
+			INSTALL_DEPS_ANIMATION.stop();
+			clearInterval(animationInterval);
+			console.log(`${chalk.greenBright(`Your project is ready! Happy coding <3`)}`);
+		})
+		.catch((err) => {
+			throw err;
+		});
 
-    INSTALL_DEPS_MESSAGE.stop();
-		clearInterval(animationInterval);
-		console.log(`${chalk.greenBright(`Your project is ready! Happy coding <3`)}`);
-	});
+const addDots = () =>
+	setInterval(() => {
+		INSTALL_DEPS_ANIMATION.replace((INSTALL_DEPS_MESSAGE += '.'));
+	}, 300);
 
 export const generateProject = (appName) => {
 	const PROJECT_PATH = `${process.cwd()}/${appName}`;
@@ -26,14 +50,10 @@ export const generateProject = (appName) => {
 	ncp(PROJECT_TEMPLATE_PATH, appName, (err) => {
 		if (err) throw err;
 
-    console.log(`${chalk.greenBright('create')} ${chalk.gray(PROJECT_PATH)}`);
+		console.log(`${chalk.greenBright('create')} ${chalk.gray(PROJECT_PATH)}`);
 		console.log(`${chalk.gray('Please wait a while. ')}`);
-    INSTALL_DEPS_ANIMATION.start();
+		INSTALL_DEPS_ANIMATION.start();
 
 		npmInstall(PROJECT_PATH, addDots());
 	});
 };
-
-const addDots = setInterval(() => {
-  INSTALL_DEPS_ANIMATION.replace((INSTALL_DEPS_MESSAGE += '.'));
-}, 300);

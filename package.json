@@ -1,6 +1,6 @@
 {
   "name": "bz-cli",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "license": "MIT",
   "bin": {
@@ -26,7 +26,8 @@
     "commander": "^2.12.2",
     "lodash": "^4.17.4",
     "mkpath": "^1.0.0",
-    "ncp": "^2.0.0"
+    "ncp": "^2.0.0",
+    "npm-programmatic": "^0.0.9"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
