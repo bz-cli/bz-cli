@@ -14,12 +14,15 @@ const DEPS = [ 'babel-plugin-transform-runtime', 'babel-polyfill', 'babel-runtim
 const DEV_DEPS = [
 	'babel-cli',
 	'babel-core',
-	'babel-plugin-transform-object-rest-spread',
-	'babel-preset-es2015',
+  'babel-plugin-transform-export-extensions',
+  'babel-plugin-transform-object-rest-spread',
+	'babel-preset-env',
 	'babel-preset-stage-3',
   'bz-define',
   'bz-zip',
-	'cpr',
+  'cpr',
+  'cross-env',
+  'jest',
 	'rimraf'
 ];
 

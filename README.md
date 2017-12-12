@@ -12,15 +12,14 @@ bz new <appName>
 ~~~~
 This will generate a new project with the following configuration:
 ### Template Stack
-* [bz-define](https://www.npmjs.com/package/bz-define) to create the bizagi custom connector definition. You must check it to learn how to define the connector structure.
+* [Babel](https://babeljs.io/) for transpilation.
+* [jest](https://facebook.github.io/jest/) for testing.
+* [bz-define](https://www.npmjs.com/package/bz-define) to create the bizagi custom connector definition.
 * [bz-zip](https://www.npmjs.com/package/bz-zip) to bundle the connector to a .bizc file.
-* [Babel](https://babeljs.io/) for ES2015+ transpilation.
-* [Mocha](https://mochajs.org/) + [Sinon](http://sinonjs.org/) + [Chai](http://chaijs.com/) for testing.
 
-### Template Instructions
-* Connector's actions should be in the `src` folder.
-* Use `npm run dev` to transpile your actions.
-* Write your actions' tests in the `test/unit-test` and `test/integration-test` folders accordingly and run them with `npm test`. If you want to be more specific: `npm run unit-test` and `npm run integration-test`
+## Template Instructions ##
+* Write your custom connector's actions in the `src` folder and transpile them with `npm run dev`.
+* Write your actions' __tests__ and run them with `npm test` or `npm t`.
 * Build your connector with `npm run build`.
 
 ## Adding Actions

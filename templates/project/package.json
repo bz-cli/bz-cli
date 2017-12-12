@@ -3,20 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "NODE_ENV=test mocha",
-    "unit-test": "NODE_ENV=test mocha test/unit --watch",
-    "integration-test": "NODE_ENV=test mocha test/integration --watch",
+    "test": "cross-env NODE_ENV=test node_modules/.bin/jest",
     "dev": "npm run babel-node",
-    "debug-mocha": "mocha --inspect --debug-brk",
-    "babel-node": "node_modules/.bin/babel src --out-dir ./build/actions --watch",
-    "build": "node_modules/.bin/bz-def && npm run setup && npm run define && npm run production && npm run bundle && npm run clear",
-    "setup": "node_modules/.bin/cpr package.json ./build/package.json && node_modules/.bin/cpr Readme.md ./build/README.md",
-    "define": "npm run define:clear && npm run define:copy && node_modules/.bin/rimraf def",
-    "define:clear": "node_modules/.bin/rimraf ./build/def && node_modules/.bin/rimraf ./build/actions.js",
-    "define:copy": "node_modules/.bin/cpr ./def/connector.json ./build/def/connector.json && node_modules/.bin/cpr ./def/actions.js ./build/actions.js",
+    "babel-node": "cross-env node_modules/.bin/babel src --out-dir ./build/actions --watch",
+    "build": "cross-env node_modules/.bin/bz-def && npm run setup && npm run define && npm run production && npm run bundle && npm run clear",
+    "setup": "cross-env node_modules/.bin/cpr package.json ./build/package.json && cross-env node_modules/.bin/cpr Readme.md ./build/README.md",
+    "define": "npm run define:clear && npm run define:copy && cross-env node_modules/.bin/rimraf def",
+    "define:clear": "cross-env node_modules/.bin/rimraf ./build/def && cross-env node_modules/.bin/rimraf ./build/actions.js",
+    "define:copy": "cross-env node_modules/.bin/cpr ./def/connector.json ./build/def/connector.json && cross-env node_modules/.bin/cpr ./def/actions.js ./build/actions.js",
     "production": "npm --prefix ./build install --production --legacy-bundling ./build",
-    "bundle": "node_modules/.bin/bz-zip -f build",
-    "clear": "node_modules/.bin/rimraf build/node_modules && node_modules/.bin/rimraf build/def && node_modules/.bin/rimraf build/actions.js && node_modules/.bin/rimraf build/package.json && node_modules/.bin/rimraf build/README.md && node_modules/.bin/rimraf def"
+    "bundle": "cross-env node_modules/.bin/bz-zip -f build",
+    "clear": "cross-env node_modules/.bin/rimraf build/node_modules && cross-env node_modules/.bin/rimraf build/def && cross-env node_modules/.bin/rimraf build/actions.js && cross-env node_modules/.bin/rimraf build/package.json && cross-env node_modules/.bin/rimraf build/README.md && cross-env node_modules/.bin/rimraf def"
   },
   "description": "Information about this connector",
   "author": {
@@ -34,11 +31,14 @@
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "bz-define": "^0.0.1",
     "bz-zip": "^1.1.2",
     "cpr": "^2.0.2",
+    "jest": "^21.2.1",
+    "cross-env": "^5.1.1",
     "rimraf": "^2.6.1"
   }
 }
