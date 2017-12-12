@@ -17,8 +17,8 @@ const DEV_DEPS = [
 	'babel-plugin-transform-object-rest-spread',
 	'babel-preset-es2015',
 	'babel-preset-stage-3',
-	'bz-define',
-	'copyfiles',
+  'bz-define',
+  'bz-zip',
 	'cpr',
 	'rimraf'
 ];
