@@ -12,7 +12,7 @@
     "define:clear": "cross-env node_modules/.bin/rimraf ./build/def && cross-env node_modules/.bin/rimraf ./build/actions.js",
     "define:copy": "cross-env node_modules/.bin/cpr ./def/connector.json ./build/def/connector.json && cross-env node_modules/.bin/cpr ./def/actions.js ./build/actions.js",
     "production": "npm --prefix ./build install --production --legacy-bundling ./build",
-    "bundle": "cross-env node_modules/.bin/bz-zip -f build",
+    "bundle": "cross-env node_modules/.bin/bz-zip compress build",
     "clear": "cross-env node_modules/.bin/rimraf build/node_modules && cross-env node_modules/.bin/rimraf build/def && cross-env node_modules/.bin/rimraf build/actions.js && cross-env node_modules/.bin/rimraf build/package.json && cross-env node_modules/.bin/rimraf build/README.md && cross-env node_modules/.bin/rimraf def"
   },
   "description": "Information about this connector",
@@ -34,8 +34,8 @@
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
+    "bz-zip": "^1.1.10",
     "bz-define": "^0.0.1",
-    "bz-zip": "^1.1.2",
     "cpr": "^2.0.2",
     "jest": "^21.2.1",
     "cross-env": "^5.1.1",
