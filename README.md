@@ -18,9 +18,9 @@ This will generate a new project with the following configuration:
 * [bz-zip](https://www.npmjs.com/package/bz-zip) to bundle the connector to a .bizc file.
 
 ## Template Instructions ##
-* Write your custom connector's actions in the `src` folder and transpile them with `npm run dev`.
-* Write your actions' __tests__ and run them with `npm test` or `npm t`.
-* Build your connector with `npm run build`.
+* Write your custom connector's actions in the `src` folder and transpile them with `npm run dev` and put them in `build/actions` for you.
+* Write your tests in the __tests__ folder. Run them with `npm test` or `npm t`.
+* Build your connector with `npm run build`. A `Connector.bizc` file will be created as a result.
 
 ## Adding Actions
 To create a connector aciton use
