@@ -1,5 +1,5 @@
 # bz-cli
-Develop custom connectors for Bizagi Studio blazingly fast. With bz-cli you are now able to use develop wihout the connector editor developed by Bizagi.
+Develop custom connectors for Bizagi Studio blazingly fast. With bz-cli you are now able to develop wihtout the connector editor developed by Bizagi.
 
 ## Installation
 ~~~
