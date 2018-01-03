@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import program from 'commander';
-import { generateProject, generateAction } from './tasks';
+import { generateProject, generateAction, generateService } from './tasks';
 
 program
   .version('0.0.1')
@@ -15,5 +15,10 @@ program
   .command('generate-action <actionName>')
   .description('Generate a new custom connector action.')
   .action(generateAction);
+
+program
+  .command('generate-service <serviceName>')
+  .description('Generate a new service class.')
+  .action(generateService);
 
 program.parse(process.argv);
