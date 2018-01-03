@@ -9,7 +9,7 @@ const REPOSITORY_TEMPLATE_PATH = resolve(__dirname, '../../templates/repository/
 const getDestPath = (repositoryName) => `src/${kebabCase(repositoryName)}.repository.js`;
 
 export const generateRepository = (repositoryName) => {
-  console.warn(repositoryName);
+
   const destPath = getDestPath(repositoryName);
 
 	sync('src', parseInt(`0777`, 8));
