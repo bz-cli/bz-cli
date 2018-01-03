@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import program from 'commander';
-import { generateProject, generateAction, generateService, generateRepository } from './tasks';
+import { generateProject, generateAction, generateService, generateRepository, generateHttpModule } from './tasks';
 
 program
   .version('0.0.1')
@@ -21,8 +21,14 @@ program
   .description('Generate a new repository class.')
   .action(generateRepository);
 
-program.command('generate-service <serviceName>')
+program
+  .command('generate-service <serviceName>')
   .description('Generate a new service class.')
   .action(generateService);
+
+program
+  .command('generate-http')
+  .description('Generate a new Http module.')
+  .action(generateHttpModule);
 
 program.parse(process.argv);
