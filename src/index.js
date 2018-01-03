@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import program from 'commander';
-import { generateProject, generateAction } from './tasks';
+import { generateProject, generateAction, generateHttpModule } from './tasks';
 
 program
   .version('0.0.1')
@@ -16,4 +16,9 @@ program
   .description('Generate a new custom connector action.')
   .action(generateAction);
 
-program.parse(process.argv);
+program
+  .command('generate-http')
+  .description('Generate a new Http module.')
+  .action(generateHttpModule);
+
+  program.parse(process.argv);
