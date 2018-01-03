@@ -34,7 +34,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "bz-zip": "^1.1.10",
-    "bz-define": "^0.0.1",
+    "bz-define": "^0.0.3",
     "cpr": "^2.0.2",
     "jest": "^21.2.1",
     "cross-env": "^5.1.1",

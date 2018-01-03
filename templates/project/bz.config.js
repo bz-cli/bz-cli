@@ -2,7 +2,9 @@ module.exports = {
 	name: 'Your connector name',
 	description: 'What you connector is.',
 	url: 'URL to the service',
-	icon: 'Base 64 icon',
+  icon: 'Base 64 icon',
+  author: 'John Doe',
+  version: '14.5.1',
 	actions: [
 		{
 			name: 'get-tenant-root-site',
