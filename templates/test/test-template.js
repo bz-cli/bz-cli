@@ -5,11 +5,12 @@ const makeMap = require('../map-contract');
 const ACTION_NAME = '';
 
 const globals = Globals({
-  host: 'http://localhost',
-  port: 2376
+  /* Your Auth Data */
 });
 
-const data = Data({});
+const data = Data({
+  /* Your Inputs */
+});
 
 const map = makeMap(ACTION_NAME);
 
