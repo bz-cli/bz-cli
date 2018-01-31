@@ -13,7 +13,9 @@
     "define:copy": "cross-env node_modules/.bin/cpr ./def/connector.json ./build/def/connector.json && cross-env node_modules/.bin/cpr ./def/actions.js ./build/actions.js",
     "production": "npm --prefix ./build install --production --legacy-bundling ./build",
     "bundle": "cross-env node_modules/.bin/bz-zip compress build",
-    "clear": "cross-env node_modules/.bin/rimraf build/node_modules && cross-env node_modules/.bin/rimraf build/def && cross-env node_modules/.bin/rimraf build/actions.js && cross-env node_modules/.bin/rimraf build/package.json && cross-env node_modules/.bin/rimraf build/README.md && cross-env node_modules/.bin/rimraf def"
+    "clear": "cross-env node_modules/.bin/rimraf build/node_modules && cross-env node_modules/.bin/rimraf build/def && cross-env node_modules/.bin/rimraf build/actions.js && cross-env node_modules/.bin/rimraf build/package.json && cross-env node_modules/.bin/rimraf build/README.md && cross-env node_modules/.bin/rimraf def",
+    "docs-en": "cross-env lang=en node ./docs",
+    "docs-es": "cross-env lang=es node ./docs"
   },
   "description": "Information about this connector",
   "author": {
@@ -24,7 +26,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
-    "bz-util": "*",
+    "bz-util": "2.1.0",
     "regenerator-runtime": "^0.11.0"
   },
   "devDependencies": {
@@ -33,11 +35,19 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
-    "bz-zip": "^1.1.10",
     "bz-define": "^0.0.3",
+    "bz-zip": "^1.1.10",
+    "change-case": "^3.0.1",
     "cpr": "^2.0.2",
-    "jest": "^21.2.1",
     "cross-env": "^5.1.1",
-    "rimraf": "^2.6.1"
+    "docx": "^3.1.0",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "jest": "^21.2.1",
+    "lodash": "^4.17.4",
+    "omit-empty": "^0.4.1",
+    "rimraf": "^2.6.1",
+    "stringify-object": "^3.2.1"
   }
 }
