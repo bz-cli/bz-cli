@@ -1,4 +1,4 @@
-export * from './generateProject';
+export * from './generate-project';
 export * from './generateAction';
 export * from './generateRepository';
 export * from './generateService';

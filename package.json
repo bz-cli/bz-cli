@@ -22,13 +22,12 @@
   },
   "dependencies": {
     "chalk": "^2.3.0",
-    "chalk-animation": "^1.3.0",
     "commander": "^2.12.2",
     "common-tags": "^1.7.2",
     "lodash": "^4.17.4",
     "mkpath": "^1.0.0",
     "ncp": "^2.0.0",
-    "npm-programmatic": "^0.0.9",
+    "normalize-path": "^2.1.1",
     "silent-error": "^1.1.0"
   },
   "devDependencies": {

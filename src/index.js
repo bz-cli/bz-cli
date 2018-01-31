@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 import program from 'commander';
+import module from '../package.json';
 import { generateProject, generateAction, generateService, generateRepository, generateHttpModule } from './tasks';
 
 program
-  .version('0.0.1')
+  .version(module.version)
   .description('Develop custom connectors for Bizagi Studio blazingly fast.');
 
 program
   .command('new <appName>')
   .description('Create a new project.')
+  .option('--yarn', 'Install using yarn package manager.')
   .action(generateProject);
 
 program
