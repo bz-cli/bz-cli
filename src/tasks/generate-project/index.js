@@ -1,12 +1,13 @@
 import chalk from 'chalk';
 import { sync } from 'mkpath';
+
 import { validateProjectName } from '../utilities/validate-project-name';
 import installDependencies from './install-depedencies';
 import copyTemplate from './copy-template';
 
-function handleError({ errorMessage }) {
-  const message = 'Project creation failed. See bellow:';
-  console.log(chalk.red(`${message}\n${errorMessage}`));
+function handleError({ message }) {
+  const sysMessage = 'Project creation failed. See bellow:';
+  console.log(chalk.red(`${sysMessage}\n${message}`));
 }
 
 export function generateProject(appName, command) {
