@@ -3,22 +3,22 @@ import { resolve } from 'path';
 import { sync } from 'mkpath';
 import { kebabCase } from 'lodash';
 import chalk from 'chalk';
+import normalize from 'normalize-path';
 
 const REPOSITORY_TEMPLATE_PATH = resolve(__dirname, '../../templates/repository/repository-template.js');
 
-const getDestPath = (repositoryName) => `src/${kebabCase(repositoryName)}.repository.js`;
+export function generateRepository(repositoryName) {
+  const destPath = `src/${kebabCase(repositoryName)}.repository.js`;
 
-export const generateRepository = (repositoryName) => {
-
-  const destPath = getDestPath(repositoryName);
-
-	sync('src', parseInt(`0777`, 8));
+  sync('src', 0o0777);
 
   const ws = createWriteStream(resolve(destPath));
-  ws.on('finish', () => {
-    ws.end();
-    console.log(`${chalk.greenBright('create')} ${chalk.gray(destPath)}`);
-  });
 
+  const onFinish = () => {
+    ws.end();
+    console.log(`${chalk.green('create')} ${chalk.gray(normalize(destPath))}`);
+  };
+
+  ws.on('finish', onFinish);
   createReadStream(REPOSITORY_TEMPLATE_PATH).pipe(ws);
-};
+}
