@@ -14,8 +14,8 @@
     "production": "npm --prefix ./build install --production --legacy-bundling ./build",
     "bundle": "cross-env node_modules/.bin/bz-zip compress build",
     "clear": "cross-env node_modules/.bin/rimraf build/node_modules && cross-env node_modules/.bin/rimraf build/def && cross-env node_modules/.bin/rimraf build/actions.js && cross-env node_modules/.bin/rimraf build/package.json && cross-env node_modules/.bin/rimraf build/README.md && cross-env node_modules/.bin/rimraf def",
-    "docs-en": "cross-env lang=en node ./docs",
-    "docs-es": "cross-env lang=es node ./docs"
+    "docs-en": "cross-env lan=en node ./docs",
+    "docs-es": "cross-env lan=es node ./docs"
   },
   "description": "Information about this connector",
   "author": {
