@@ -3,22 +3,22 @@ import { resolve } from 'path';
 import { sync } from 'mkpath';
 import { kebabCase } from 'lodash';
 import chalk from 'chalk';
+import normalize from 'normalize-path';
 
 const SERVICE_TEMPLATE_PATH = resolve(__dirname, '../../templates/service/service-template.js');
 
-const getDestPath = (serviceName) => `src/${kebabCase(serviceName)}.service.js`;
+export function generateService(serviceName) {
+  const destPath = `src/${kebabCase(serviceName)}.service.js`;
 
-export const generateService = (serviceName) => {
-
-  const destPath = getDestPath(serviceName);
-
-	sync('src', parseInt(`0777`, 8));
+  sync('src', 0o0777);
 
   const ws = createWriteStream(resolve(destPath));
-  ws.on('finish', () => {
-    ws.end();
-    console.log(`${chalk.greenBright('create')} ${chalk.gray(destPath)}`);
-  });
 
+  const onFinish = () => {
+    ws.end();
+    console.log(`${chalk.green('create')} ${chalk.gray(normalize(destPath))}`);
+  };
+
+  ws.on('finish', onFinish);
   createReadStream(SERVICE_TEMPLATE_PATH).pipe(ws);
-};
+}
