@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import program from 'commander';
+
 import module from '../package.json';
 import { generateProject, generateAction, generateService, generateRepository, generateHttpModule } from './tasks';
 
