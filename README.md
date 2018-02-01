@@ -112,23 +112,23 @@ This is a brief summary of the properties of the bzconfig object. See the interf
 | outputs         | Array of outputs. [See Inputs/Outputs] |
 
 #### Inputs/Outputs ####
-| Property        | Description                                        |
-| ----------------| ---------------------------------------------------|
-| name            | Name of the action input/output.                   |
-| description-en  | Input/Output description in english.               |
-| description-es  | Input/Output description in spanish.               |
-| type            | Array of inputs. [See Inputs/Outputs]              |
-| qty             | Quantity. Either 'single' or 'list'                |
-| props           | Nested Input/Output. Required if type is 'object'. |
+| Property        | Description                                                                        |
+| ----------------| -----------------------------------------------------------------------------------|
+| name            | Name of the action input/output.                                                   |
+| description-en  | Input/Output description in english.                                               |
+| description-es  | Input/Output description in spanish.                                               |
+| type            | 'integer' | 'decimal' | 'string' | 'boolean' | 'date' | 'time' | 'byte' | 'object' |
+| qty             | Quantity. Either 'single' or 'list'                                                |
+| props           | Nested Input/Output. Required if type is 'object'.                                 |
 
 #### Auth Properties #####
-| Property        | Description                    |
-| ----------------| -------------------------------|
-| name            | Name of the property.          |
-| required        | Value is required.             |
-| hide            | Value should be encrypted.     |
-| description-en  | Action description in english. |
-| description-es  | Action description in spanish. |
+| Property        | Description                      |
+| ----------------| ---------------------------------|
+| name            | Name of the property.            |
+| required        | Value is required.               |
+| hide            | Value should be encrypted.       |
+| description-en  | Property description in english. |
+| description-es  | Property description in spanish. |
 
 Using Typescript we can define the contract as it follows:
 ~~~
